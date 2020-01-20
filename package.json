@@ -4,7 +4,7 @@
   "description": "Student Database",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon index.js",
     "start:prod": "NODE_ENV=production node index.js"
   },
   "author": "None",
