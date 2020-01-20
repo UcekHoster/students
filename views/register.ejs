@@ -43,16 +43,6 @@
 </div>
 </div>
 <script>
-        $(document).ready(function () {
-                $('.send').attr('disabled', true);
-                $('#mydate').keyup(function () {
-                        if ($(this).val().length != 0) {
-                                $('.send').attr('disabled', false);
-                        } else {
-                                $('.send').attr('disabled', true);
-                        }
-                })
-        });
         $('#myid').change(() => {
                 if ($('#myid').val().toString().length !== 12) {
                         swal({
