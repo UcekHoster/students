@@ -3,6 +3,7 @@ const router = express.Router();
 const cookieParser = require('cookie-parser');
 const User = require('../model/User');
 const jwt = require('jsonwebtoken');
+const nodemailer = require('nodemailer')
 const mongodb = require('mongodb');
 const mongoClient = mongodb.MongoClient
 const ejs = require('ejs');
@@ -60,9 +61,28 @@ router.post('/register', async (req, res) => {
         });
         res.cookie('TOKEN', token, expiration);
         try {
-            const email = {
+            // const email = {
+            //     to: req.body.mail,
+            //     from: 'ucekcsedb@gmail.com',
+            //     subject: `Hello, ${req.body.username}. Verification Mail from UCEK`,
+            //     html: `<div style="text-align: center">
+            // <h2>Univeristy college of Engineering - Kancheepuram</h4>
+            // <h4>Department of Computer Science and Engineering</h5><br>
+            // <p>Please confirm your Mail ID within 2 hours! Otherwise, your licence will be revoked.</p><br>
+            // <p>Once you get verified using this Email, this Mail will become invalid!</p><br>
+            // <button style="padding:10px 20px;background:#4f37b9;border-radius: 20px;border:1px solid #4f37b9"><a style="text-decoration: none; color: white" href="${fullUrl}/verify_email/${token}">Verify Me!</a></button></div>`
+            // };
+            const transporter = nodemailer.createTransport({
+                service: 'gmail',
+                auth: {
+                    user: 'ucekhoster@gmail.com',
+                    pass: 'ucekcse@44'
+                }
+            });
+
+            const mailOptions = {
                 to: req.body.mail,
-                from: 'ucekcsedb@gmail.com',
+                from: 'ucekhoster@gmail.com',
                 subject: `Hello, ${req.body.username}. Verification Mail from UCEK`,
                 html: `<div style="text-align: center">
             <h2>Univeristy college of Engineering - Kancheepuram</h4>
@@ -71,7 +91,15 @@ router.post('/register', async (req, res) => {
             <p>Once you get verified using this Email, this Mail will become invalid!</p><br>
             <button style="padding:10px 20px;background:#4f37b9;border-radius: 20px;border:1px solid #4f37b9"><a style="text-decoration: none; color: white" href="${fullUrl}/verify_email/${token}">Verify Me!</a></button></div>`
             };
-            sendgrid_mail.send(email)
+
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    res.redirect('/error')
+                } else {
+
+                }
+            });
+            // sendgrid_mail.send(email)
         } catch (err) {
             res.redirect('/error');
         }
@@ -171,15 +199,39 @@ router.post('/feonbnkkkujnxdkrqgouhqpsiaarpsfhekrpgwvuscmdtfvcpokzegryacvzsdha',
             try {
                 (async () => {
                     const ip = await publicIp.v4();
-                    const email = {
+                    // const email = {
+                    //     to: mail,
+                    //     from: 'ucekcsedb@gmail.com',
+                    //     subject: `UCEK- Kancheepuram.`,
+                    //     html: `<div style="text-align: center">
+                    //         <p>It's just a notification!<br>${req.body.id}, You've Logged In Recently from <b>IP: ${ip}</b>.</p>
+                    //         <button style="padding:10px 20px;background:#4f37b9;border-radius: 20px;border:1px solid #4f37b9"><a style="text-decoration: none; color: white" href=${fullUrl}>Home</a></button></div>`
+                    // };
+                    // sendgrid_mail.send(email)
+                    const transporter = nodemailer.createTransport({
+                        service: 'gmail',
+                        auth: {
+                            user: 'ucekhoster@gmail.com',
+                            pass: 'ucekcse@44'
+                        }
+                    });
+
+                    const mailOptions = {
+                        from: 'ucekhoster@gmail.com',
                         to: mail,
-                        from: 'ucekcsedb@gmail.com',
                         subject: `UCEK- Kancheepuram.`,
                         html: `<div style="text-align: center">
                             <p>It's just a notification!<br>${req.body.id}, You've Logged In Recently from <b>IP: ${ip}</b>.</p>
                             <button style="padding:10px 20px;background:#4f37b9;border-radius: 20px;border:1px solid #4f37b9"><a style="text-decoration: none; color: white" href=${fullUrl}>Home</a></button></div>`
                     };
-                    sendgrid_mail.send(email)
+
+                    transporter.sendMail(mailOptions, function (error, info) {
+                        if (error) {
+                            res.redirect('/error')
+                        } else {
+
+                        }
+                    });
                 })();
                 res.redirect('/formEntry');
             } catch (err) {
