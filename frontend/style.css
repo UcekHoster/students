@@ -1,0 +1,225 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.5 ease-in-out;
+}
+
+:root {
+  --color-text-primary: rgb(61, 60, 60);
+  --btn-primary: rgb(97, 0, 189);
+  --brand: rgb(78, 0, 151);
+}
+
+nav {
+  background-color: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  z-index: 2000;
+  width: 100%;
+  box-shadow: 0px 5px 25px rgb(193, 128, 247, 0.3);
+}
+
+.brand-logo {
+  font-weight: 900;
+  font-family: "Montserrat", sans-serif;
+  color: var(--brand) !important;
+}
+
+.sub-heading {
+  z-index: 2;
+  margin-top: -0%;
+}
+
+.btn-large {
+  background: var(--btn-primary);
+  border-radius: 5px;
+  width: 80% !important;
+  color: white;
+  box-shadow: none;
+}
+
+.btn-large:hover {
+  background: var(--btn-primary);
+  box-shadow: 1px 2px 20px rgb(193, 128, 247);
+}
+
+.btn {
+  background: var(--btn-primary);
+  border-radius: 5px;
+  color: white;
+  box-shadow: none;
+}
+
+.btn:hover {
+  background: var(--btn-primary);
+  box-shadow: 1px 2px 20px rgb(193, 128, 247);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--btn-primary);
+  border-radius: 5px;
+  color: var(--btn-primary);
+  box-shadow: none;
+}
+
+.btn-outline:hover {
+  background: var(--btn-primary);
+  color: white;
+  transition: all 0.5 ease-in-out;
+  box-shadow: 1px 2px 20px rgb(193, 128, 247);
+}
+
+.clip {
+  z-index: -1;
+  height: 96vh;
+  position: relative;
+  background: linear-gradient(to right, rgb(162, 0, 255), rgb(93, 0, 136));
+  background-size: cover;
+  overflow: hidden;
+  width: 100%;
+  margin-top: -5%;
+  background-repeat: no-repeat;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+.video-asset {
+  filter: grayscale(100%);
+}
+.header-video:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to right,
+    rgba(65, 0, 255, 0.5),
+    rgba(255, 0, 232, 0.5)
+  );
+}
+
+.cards {
+  margin-top: -20%;
+  text-align: center;
+  z-index: 5;
+}
+.entries {
+  max-width: 90%;
+  text-align: center !important;
+}
+.card {
+  border-radius: 20px;
+  text-align: center;
+  padding: 8%;
+  box-shadow: 1px 2px 20px rgba(81, 1, 143, 0.349);
+}
+
+.card-title {
+  font-weight: 400 !important;
+  font-size: 1.5rem !important;
+  text-transform: uppercase;
+  color: var(--btn-primary) !important;
+}
+
+.help h4 {
+  font-weight: 600 !important;
+  font-size: 2.5rem !important;
+  text-transform: uppercase;
+  color: var(--btn-primary) !important;
+  text-align: center;
+}
+
+.feedback h4 {
+  font-weight: 600 !important;
+  font-size: 2.5rem !important;
+  text-transform: uppercase;
+  color: var(--btn-primary) !important;
+  text-align: center;
+}
+
+.page-footer {
+  background: rgb(80, 3, 180);
+}
+
+.footer-copyright {
+  background: rgb(62, 2, 139) !important;
+}
+
+#logo {
+  position: absolute;
+  top: 40%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  animation: scaler 1s ease forwards;
+}
+
+#logo path:nth-child(1) {
+  stroke-dasharray: 250;
+  stroke-dashoffset: 250;
+  animation: line-anime 2s ease forwards;
+}
+
+#logo path:nth-child(2) {
+  stroke-dasharray: 250;
+  stroke-dashoffset: 250;
+  animation: line-anime 3s ease forwards;
+}
+
+#logo path:nth-child(3) {
+  stroke-dasharray: 250;
+  stroke-dashoffset: 250;
+  animation: line-anime 4s ease forwards;
+}
+
+#logo path:nth-child(4) {
+  stroke-dasharray: 250;
+  stroke-dashoffset: 250;
+  animation: line-anime 5s ease forwards;
+}
+
+#logo path:nth-child(5) {
+  stroke-dasharray: 350;
+  stroke-dashoffset: 350;
+  animation: line-anime 4s ease forwards;
+}
+
+#logo path:nth-child(6) {
+  stroke-dasharray: 350;
+  stroke-dashoffset: 350;
+  animation: line-anime 7s ease forwards;
+}
+
+#logo path:nth-child(7) {
+  stroke-dasharray: 250;
+  stroke-dashoffset: 250;
+  animation: line-anime 8s ease forwards;
+}
+
+#logo path:nth-child(8) {
+  stroke-dasharray: 250;
+  stroke-dashoffset: 250;
+  animation: line-anime 9s ease forwards;
+}
+
+#logo path:nth-child(9) {
+  stroke-dasharray: 250;
+  stroke-dashoffset: 250;
+  animation: line-anime 10s ease forwards;
+}
+
+@keyframes line-anime {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scaler {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1.5);
+  }
+}
