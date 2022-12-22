@@ -27,7 +27,7 @@
     "html-pdf": "^2.2.0",
     "image-watermark": "0.0.7",
     "jquery": "^3.4.1",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "materialize-css": "^1.0.0",
     "mongodb": "^3.4.1",
     "mongoose": "^5.8.7",
